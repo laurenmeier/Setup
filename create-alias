@@ -2,6 +2,9 @@
 # Aliases #
 #---------#
 
+### Vim
+alias vi='vim -u ~/.server/lauren-vimrc'
+
 ### Web server
 alias pyserv='python3 -m http.server'
 alias jeserv='jekyll serve'
