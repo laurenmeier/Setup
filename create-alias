@@ -3,7 +3,7 @@
 #---------#
 
 ### Vim
-alias vi='vim -u ~/.server/lauren-vimrc'
+alias lv='vim -u ~/.setup/lauren-vimrc'
 
 ### Web server
 alias pyserv='python3 -m http.server'
