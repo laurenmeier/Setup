@@ -1,17 +1,16 @@
 " Lauren Meier
 
-" Colors {{{
+" Colors
 syntax on
-set background=dark
+"set background=dark
 colorscheme solarized
-" }}}
-" Launch Config {{{
+
+" Launch Config
 " following settings are required for Vundle
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
@@ -24,84 +23,52 @@ Plugin 'tpope/vim-unimpaired'
 "do i need these? check back in after working on personal project
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-
 call vundle#end()
 filetype plugin indent on
-" }}}
-" Spaces & Tabs {{{
+
+" Spaces & Tabs
 set tabstop=2
 set softtabstop=2
 set expandtab
 set shiftwidth=2
 set smarttab
-" Go to tab by number
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-nmap <tab> gt
-nmap <s-tab> gT
-" Go to last active tab
-let g:lasttab = 1
-nmap <silent> <leader>lt :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
-" }}}
-" UI Config {{{
+set autoindent
+"set smartindent
+
+" UI Config
 set nu
-set showcmd
-set nocursorcolumn
 set nocursorline
 set norelativenumber
-syntax sync minlines=256
+set colorcolumn=120
 
 "faster updates and rendering
+syntax sync minlines=256
 set lazyredraw
 set ttyfast
 
-filetype plugin indent on
-
 "command autocompletion
 set wildmenu
+
 "move cursor to opening bracket for 2 tenths of a second
 set showmatch
 set matchtime=2
-" }}}
-" Splits {{{
-"switching between split windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
-set splitbelow
-set splitright
-" }}}
-" Search {{{
+" Search
 set incsearch
 set hlsearch
 set iskeyword-=.
 set ignorecase
-" }}}
-" Folding {{{
-set foldnestmax=5      " max 10 depth
-set nofen          " don't fold files by default on open
-set foldlevelstart=0    " start with fold level of 1
-set foldmethod=marker
-set foldlevel=0
-" }}}
-" Lightline {{{
+
+"Status Bar
+set noshowmode
+set fillchars+=stl:\ ,stlnc:\ "problematic colorscheme messes with spaces
+" Lightline
 set laststatus=2   " Always show the statusline
 let g:lightline = {
   \ 'colorscheme': 'seoul256'
   \ }
-" }}}
-" CtrlP settings {{{
+
+" CtrlP settings
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_lazy_update=1
@@ -111,27 +78,17 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-h>'],
     \ }
 set wildignore+=*/.git/*
-" }}}
-" CtrlSpace settings {{{
+
+" CtrlSpace settings
 set nocompatible
 set hidden
 let g:CtrlSpaceLoadLastWorkspaceOnStart=1
-" }}}
-" Misc {{{
+
+" Misc
 imap jk <Esc>
-
-set shiftwidth=2
-set autoindent
-set smartindent
-
-set noshowmode
-
 set backspace=indent,eol,start
-
 set encoding=utf-8 " Necessary to show Unicode glyphs
-set fillchars+=stl:\ ,stlnc:\
 set nobackup
 
 highlight Pmenu ctermfg=7 ctermbg=8 guifg=#ffffff guibg=#0000ff
 highlight ExtraWhitespace guibg=#990000 ctermbg=red
- " }}}
